@@ -51,7 +51,7 @@ public class Driver{
         return driverId;
     }
 
-    public void setDriverId(Integer driverId) {
+    public void setDriver(Integer driverId) {
         this.driverId = driverId;
     }
 
