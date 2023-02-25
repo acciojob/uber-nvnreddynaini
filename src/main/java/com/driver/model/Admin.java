@@ -12,18 +12,18 @@ public class Admin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer adminId;
-    private String userName;
-    private String passWord;
+    private String username;
+    private String password;
 
     public Admin(Integer adminId, String userName, String passWord) {
         this.adminId = adminId;
-        this.userName = userName;
-        this.passWord = passWord;
+        this.username = userName;
+        this.password = passWord;
     }
 
     public Admin(String userName, String passWord) {
-        this.userName = userName;
-        this.passWord = passWord;
+        this.username = userName;
+        this.password = passWord;
     }
 
     public Admin() {
@@ -37,19 +37,21 @@ public class Admin {
         this.adminId = adminId;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String userName) {
+        this.username = userName;
     }
 
-    public String getPassWord() {
-        return passWord;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPassWord(String passWord) {
-        this.passWord = passWord;
+    public void setPassword(String passWord) {
+        this.password = passWord;
     }
+
+
 }
