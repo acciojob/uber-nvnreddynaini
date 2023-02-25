@@ -9,10 +9,10 @@ public class TripBooking {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer tripBookingId;
+    private int tripBookingId;
     private String fromLocation;
     private String toLocation;
-    private Integer distanceInKm;
+    private int distanceInKm;
 
     @Enumerated(value = EnumType.STRING)
     private TripStatus status;
@@ -39,7 +39,7 @@ public class TripBooking {
     public TripBooking() {
     }
 
-    public Integer getTripBookingId() {
+    public int getTripBookingId() {
         return tripBookingId;
     }
 
@@ -63,7 +63,7 @@ public class TripBooking {
         this.toLocation = toLocation;
     }
 
-    public Integer getDistInKm() {
+    public int getDistInKm() {
         return distanceInKm;
     }
 
@@ -95,7 +95,7 @@ public class TripBooking {
         this.driver = driver;
     }
 
-    public Integer getDistanceInKm() {
+    public int getDistanceInKm() {
         return distanceInKm;
     }
 

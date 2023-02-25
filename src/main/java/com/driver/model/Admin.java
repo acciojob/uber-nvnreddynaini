@@ -11,11 +11,11 @@ public class Admin {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer adminId;
+    private int adminId;
     private String username;
     private String password;
 
-    public Admin(Integer adminId, String userName, String passWord) {
+    public Admin(int adminId, String userName, String passWord) {
         this.adminId = adminId;
         this.username = userName;
         this.password = passWord;
@@ -29,7 +29,7 @@ public class Admin {
     public Admin() {
     }
 
-    public Integer getAdminId() {
+    public int getAdminId() {
         return adminId;
     }
 

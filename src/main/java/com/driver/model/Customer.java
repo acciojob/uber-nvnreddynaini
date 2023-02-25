@@ -12,14 +12,14 @@ public class Customer{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer customerId;
+    private int customerId;
     private String mobile;
     private String password;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     List<TripBooking> tripBookingList = new ArrayList<>();
 
-    public Customer(Integer customerId, String mobile, String password, List<TripBooking> tripBookingList) {
+    public Customer(int customerId, String mobile, String password, List<TripBooking> tripBookingList) {
         this.customerId = customerId;
         this.mobile = mobile;
         this.password = password;
@@ -34,7 +34,7 @@ public class Customer{
         this.tripBookingList = tripBookingList;
     }
 
-    public Customer(Integer customerId, String mobile, String password) {
+    public Customer(int customerId, String mobile, String password) {
         this.customerId = customerId;
         this.mobile = mobile;
         this.password = password;
@@ -43,11 +43,11 @@ public class Customer{
     public Customer() {
     }
 
-    public Integer getCustomerId() {
+    public int getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(Integer customerId) {
+    public void setCustomerId(int customerId) {
         this.customerId = customerId;
     }
 

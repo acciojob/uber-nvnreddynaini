@@ -7,14 +7,14 @@ import javax.persistence.*;
 public class Cab{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private Integer perKmRate;
+    private int id;
+    private int perKmRate;
     boolean available;
 
     @OneToOne(mappedBy = "cab", cascade = CascadeType.ALL)
     private Driver driver;
 
-    public Cab(Integer id, Integer perKmRate, boolean available) {
+    public Cab(int id, int perKmRate, boolean available) {
         this.id = id;
         this.perKmRate = perKmRate;
         this.available = available;
@@ -27,19 +27,19 @@ public class Cab{
     public Cab() {
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public Integer getPerKmRate() {
+    public int getPerKmRate() {
         return perKmRate;
     }
 
-    public void setPerKmRate(Integer perKmRate) {
+    public void setPerKmRate(int perKmRate) {
         this.perKmRate = perKmRate;
     }
 

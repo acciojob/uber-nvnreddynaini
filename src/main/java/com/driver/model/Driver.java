@@ -13,7 +13,7 @@ public class Driver{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer driverId;
+    private int driverId;
     private String mobile;
     private String password;
 
@@ -47,7 +47,7 @@ public class Driver{
         this.tripBookingList = tripBookingList;
     }
 
-    public Integer getDriverId() {
+    public int getDriverId() {
         return driverId;
     }
 
