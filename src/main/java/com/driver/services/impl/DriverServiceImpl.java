@@ -37,16 +37,16 @@ public class DriverServiceImpl implements DriverService {
 		// Delete driver without using deleteById function
 		Driver driver = driverRepository3.findById(driverId).get();
 
-		Cab cab = driver.getCab();
-		cabRepository3.delete(cab);
-
-		List<TripBooking> tripBookingList = driver.getTripBookingList();
-
-		for(TripBooking tripBooking : tripBookingList){
-			if(tripBooking.getStatus() == TripStatus.CONFIRMED){
-				tripBooking.setStatus(TripStatus.CANCELED);
-			}
-		}
+//		Cab cab = driver.getCab();
+//		cabRepository3.delete(cab);
+//
+//		List<TripBooking> tripBookingList = driver.getTripBookingList();
+//
+//		for(TripBooking tripBooking : tripBookingList){
+//			if(tripBooking.getStatus() == TripStatus.CONFIRMED){
+//				tripBooking.setStatus(TripStatus.CANCELED);
+//			}
+//		}
 		driverRepository3.delete(driver);
 	}
 
