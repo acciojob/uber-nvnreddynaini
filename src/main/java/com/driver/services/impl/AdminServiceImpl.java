@@ -1,13 +1,12 @@
 package com.driver.services.impl;
 
 import java.util.List;
-import java.util.Optional;
 
-import com.driver.model.Admin;
 import com.driver.services.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.driver.model.Admin;
 import com.driver.model.Customer;
 import com.driver.model.Driver;
 import com.driver.repository.AdminRepository;
@@ -34,11 +33,11 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public Admin updatePassword(Integer adminId, String password) {
-	//Update the password of admin with given id
+		//Update the password of admin with given id
 		Admin admin = adminRepository1.findById(adminId).get();
 		admin.setPassword(password);
 		adminRepository1.save(admin);
-		return admin;
+		return  admin;
 	}
 
 	@Override
@@ -52,8 +51,9 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public List<Driver> getListOfDrivers() {
 		//Find the list of all drivers
-		List<Driver> drivers = driverRepository1.findAll();
-		return drivers;
+		List<Driver> driverList = driverRepository1.findAll();
+		return driverList;
+
 	}
 
 	@Override

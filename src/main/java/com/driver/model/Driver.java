@@ -1,35 +1,26 @@
 package com.driver.model;
 
-import net.bytebuddy.dynamic.loading.InjectionClassLoader;
-import org.apache.catalina.Wrapper;
-
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table
-public class Driver{
+@Table(name = "driver")
+public class Driver {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int driverId;
+
     private String mobile;
+
     private String password;
 
-    @OneToOne
     @JoinColumn
+    @OneToOne
     private Cab cab;
 
-    @OneToMany(mappedBy = "driver", cascade = CascadeType.ALL)
-    List<TripBooking> tripBookingList = new ArrayList<>();
-
-    public Driver(int driverId, String mobile, String password, Cab cab) {
-        this.driverId = driverId;
-        this.mobile = mobile;
-        this.password = password;
-        this.cab = cab;
-    }
+    @OneToMany(mappedBy = "driver",cascade = CascadeType.ALL)
+    private List<TripBooking> tripBookingList;
 
     public Driver() {
     }
@@ -39,11 +30,11 @@ public class Driver{
         this.password = password;
     }
 
-    public List<TripBooking> getTripBookingList() {
-        return tripBookingList;
-    }
-
-    public void setTripBookingList(List<TripBooking> tripBookingList) {
+    public Driver(int driverId, String mobile, String password, Cab cab, List<TripBooking> tripBookingList) {
+        this.driverId = driverId;
+        this.mobile = mobile;
+        this.password = password;
+        this.cab = cab;
         this.tripBookingList = tripBookingList;
     }
 
@@ -51,7 +42,7 @@ public class Driver{
         return driverId;
     }
 
-    public void setDriverId(Integer driverId) {
+    public void setDriverId(int driverId) {
         this.driverId = driverId;
     }
 
@@ -77,5 +68,13 @@ public class Driver{
 
     public void setCab(Cab cab) {
         this.cab = cab;
+    }
+
+    public List<TripBooking> getTripBookingList() {
+        return tripBookingList;
+    }
+
+    public void setTripBookingList(List<TripBooking> tripBookingList) {
+        this.tripBookingList = tripBookingList;
     }
 }

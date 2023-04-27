@@ -1,13 +1,16 @@
 package com.driver.controllers;
 
+import com.driver.model.Admin;
 import com.driver.model.Customer;
 import com.driver.model.Driver;
 import com.driver.services.AdminService;
+import com.driver.services.impl.AdminServiceImpl;
+import com.driver.services.impl.CustomerServiceImpl;
+import com.driver.services.impl.DriverServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.driver.model.Admin;
 
 import java.util.List;
 
@@ -16,7 +19,7 @@ import java.util.List;
 public class AdminController {
 
 	@Autowired
-	private AdminService adminService;
+	AdminServiceImpl adminService;
 
 	@PostMapping("/register")
 	public ResponseEntity<Void> registerAdmin(@RequestBody Admin admin){
@@ -24,7 +27,7 @@ public class AdminController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
-	@PutMapping("/updates")
+	@PutMapping("/update")
 	public ResponseEntity<Admin> updateAdminPassword(@RequestParam Integer adminId, @RequestParam String password){
 		Admin updatedAdmin = adminService.updatePassword(adminId,password);
 		return new ResponseEntity<>(updatedAdmin, HttpStatus.OK);

@@ -1,17 +1,19 @@
 package com.driver.model;
 
-import net.bytebuddy.dynamic.loading.InjectionClassLoader;
-
 import javax.persistence.*;
 
 @Entity
+@Table(name = "trip_booking")
 public class TripBooking {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int tripBookingId;
+
     private String fromLocation;
+
     private String toLocation;
+
     private int distanceInKm;
 
     @Enumerated(value = EnumType.STRING)
@@ -19,31 +21,33 @@ public class TripBooking {
 
     private int bill;
 
-    @ManyToOne
     @JoinColumn
-    private Driver driver;
-
-
     @ManyToOne
-    @JoinColumn
     private Customer customer;
 
-    public TripBooking(String fromLocation, String toLocation, int distanceInKm, TripStatus status, int bill) {
+    @JoinColumn
+    @ManyToOne
+    private Driver driver;
+
+    public TripBooking() {
+    }
+
+    public TripBooking(int tripBookingId, String fromLocation, String toLocation, int distanceInKm, TripStatus status, int bill, Customer customer, Driver driver) {
+        this.tripBookingId = tripBookingId;
         this.fromLocation = fromLocation;
         this.toLocation = toLocation;
         this.distanceInKm = distanceInKm;
         this.status = status;
         this.bill = bill;
-    }
-
-    public TripBooking() {
+        this.customer = customer;
+        this.driver = driver;
     }
 
     public int getTripBookingId() {
         return tripBookingId;
     }
 
-    public void setTripBookingId(Integer tripBookingId) {
+    public void setTripBookingId(int tripBookingId) {
         this.tripBookingId = tripBookingId;
     }
 
@@ -63,12 +67,12 @@ public class TripBooking {
         this.toLocation = toLocation;
     }
 
-    public int getDistInKm() {
+    public int getDistanceInKm() {
         return distanceInKm;
     }
 
-    public void setDistInKm(Integer distInKm) {
-        this.distanceInKm = distInKm;
+    public void setDistanceInKm(int distanceInKm) {
+        this.distanceInKm = distanceInKm;
     }
 
     public TripStatus getStatus() {
@@ -77,6 +81,14 @@ public class TripBooking {
 
     public void setStatus(TripStatus status) {
         this.status = status;
+    }
+
+    public int getBill() {
+        return bill;
+    }
+
+    public void setBill(int bill) {
+        this.bill = bill;
     }
 
     public Customer getCustomer() {
@@ -93,21 +105,5 @@ public class TripBooking {
 
     public void setDriver(Driver driver) {
         this.driver = driver;
-    }
-
-    public int getDistanceInKm() {
-        return distanceInKm;
-    }
-
-    public void setDistanceInKm(Integer distanceInKm) {
-        this.distanceInKm = distanceInKm;
-    }
-
-    public int getBill() {
-        return bill;
-    }
-
-    public void setBill(int bill) {
-        this.bill = bill;
     }
 }
